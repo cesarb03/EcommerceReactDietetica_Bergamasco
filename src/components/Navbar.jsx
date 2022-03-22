@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import styled from "styled-components";
 import BurgerButtons from "./BurgerButtons";
-import { TiShoppingCart } from "react-icons/ti";
+import CartWidget from "./CartWidget";
 
 
 function Navbar() {
@@ -24,7 +24,7 @@ function Navbar() {
           <a onClick={handleClick} href="">Contacto</a>
           <a onClick={handleClick} href="">Noticias</a>
         </div>
-        <div> <a href=""><TiShoppingCart /></a></div>
+        <CartWidget/> // Llamo componente de CartWidget
         <div className="burguer">
           <BurgerButtons clicked={clicked} handleClick={handleClick}/>
         </div>

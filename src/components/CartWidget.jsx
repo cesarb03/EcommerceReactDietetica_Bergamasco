@@ -3,7 +3,7 @@ import { TiShoppingCart } from "react-icons/ti";
 
 const CartWidget = () => {
     return (
-        <TiShoppingCart/>
+        <div> <a href=""><TiShoppingCart /></a></div>
     )
 }
 
