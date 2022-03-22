@@ -3,6 +3,7 @@ import styled from "styled-components";
 import BurgerButtons from "./BurgerButtons";
 import { TiShoppingCart } from "react-icons/ti";
 
+
 function Navbar() {
 
   const [clicked, setClicked] = useState(false)
@@ -17,11 +18,11 @@ function Navbar() {
       <NavContainer>
         <h2>Dietetica <span>Responsive</span></h2>
         <div className={`links ${clicked ? 'active' : ''}`}>
-          <a onClick={handleClick} href="">Home</a>
-          <a onClick={handleClick} href="">Shop</a>
-          <a onClick={handleClick} href="">About</a>
-          <a onClick={handleClick} href="">Contact</a>
-          <a onClick={handleClick} href="">Blog</a>
+          <a onClick={handleClick} href="">Inicio</a>
+          <a onClick={handleClick} href="">Productos</a>
+          <a onClick={handleClick} href="">Quiénes Somos</a>
+          <a onClick={handleClick} href="">Contacto</a>
+          <a onClick={handleClick} href="">Noticias</a>
         </div>
         <div> <a href=""><TiShoppingCart /></a></div>
         <div className="burguer">
