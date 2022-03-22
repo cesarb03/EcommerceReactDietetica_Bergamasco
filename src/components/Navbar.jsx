@@ -24,7 +24,7 @@ function Navbar() {
           <a onClick={handleClick} href="">Contacto</a>
           <a onClick={handleClick} href="">Noticias</a>
         </div>
-        <CartWidget/> // Llamo componente de CartWidget
+        <CartWidget/>
         <div className="burguer">
           <BurgerButtons clicked={clicked} handleClick={handleClick}/>
         </div>
