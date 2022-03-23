@@ -47,7 +47,8 @@ const ItemCount = (props) =>{
     } 
 
     const onAddCart = () =>{
-        props.stock > 0 ? props.cartAdd(counterItem) : props.cartAdd(0);
+        // props.stock > 0 ? props.cartAdd(counterItem) : props.cartAdd(0);
+        console.log(counterItem)
     }
 
     return (
