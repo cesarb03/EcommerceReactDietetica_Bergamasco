@@ -2,7 +2,7 @@ import styled from "styled-components";
 import ItemCount from "./ItemCount";
 
 export const Item = ({ item }) => {
-  const productos = item
+  
   return (
     <Cards>
       <div className="itemListContainer">
