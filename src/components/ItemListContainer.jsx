@@ -1,6 +1,7 @@
 import React from "react";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
 const productosIniciales = [
   {
@@ -49,15 +50,22 @@ export const ItemListContainer = (props) => {
   }, []);
 
   return (
-    <>
+    <Estilos>
       <div>
         <h1>Bienvenido, {userName}!</h1>
         <h4>{greeting}</h4>
       </div>
 
       <ItemList productos={productos} />
-    </>
+    </Estilos>
   );
 };
 
 export default ItemListContainer;
+
+const Estilos = styled.div`
+  h1,
+  h4 {
+    text-align: center;
+  }
+`;
