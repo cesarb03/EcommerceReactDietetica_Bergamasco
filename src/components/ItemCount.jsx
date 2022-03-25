@@ -56,7 +56,6 @@ const ItemCount = (props) => {
   return (
     <Contador>
       <div className="containerItemCount">
-        <p>Stock: {props.stock}</p>
         {props.stock > 0 ? (
           <>
             <div className="detailItemCount">

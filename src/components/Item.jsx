@@ -15,7 +15,7 @@ export const Item = ({ item }) => {
                 <span>Stock: {item.stock}</span>
                 <br />
                 <span>$ {item.price}</span>
-                <br />
+                <br /><br />
                 <ItemCount stock={item.stock} /> 
               </div>
             </div>

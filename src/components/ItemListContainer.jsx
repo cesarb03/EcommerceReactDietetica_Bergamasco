@@ -13,14 +13,14 @@ const productosIniciales = [
   {
     name: "Almendras",
     price: 160,
-    stock: 300,
+    stock: 4,
     id: 2,
     img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
   },
   {
     name: "Maní",
     price: 30,
-    stock: 500,
+    stock: 3,
     id: 3,
     img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
   },
