@@ -2,9 +2,14 @@ import React from "react";
 import { TiShoppingCart } from "react-icons/ti";
 
 const CartWidget = () => {
-    return (
-        <div> <a href=""><TiShoppingCart /></a></div>
-    )
-}
+  return (
+    <div>
+      {" "}
+      <a href="">
+        <TiShoppingCart />
+      </a>
+    </div>
+  );
+};
 
-export default CartWidget
+export default CartWidget;

@@ -1,17 +1,63 @@
 import React from "react";
+import ItemList from "./ItemList";
+import { useEffect, useState } from "react";
 
-const ItemListContainer = (props) => {
+const productosIniciales = [
+  {
+    name: "Nueces",
+    price: 140,
+    stock: 5,
+    id: 1,
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+  {
+    name: "Almendras",
+    price: 160,
+    stock: 300,
+    id: 2,
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+  {
+    name: "Maní",
+    price: 30,
+    stock: 500,
+    id: 3,
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+];
 
-    const { greeting, userName } = props
+const promesa = new Promise((res, rej) => {
+  setTimeout(() => {
+    res(productosIniciales);
+  }, 2000);
+});
 
-    return (
-        <>
-            <div>
-                <h1>Bienvenido, {userName}!</h1>
-                <h4>{greeting}</h4>
-            </div>
-        </>
-    )
-}
+export const ItemListContainer = (props) => {
+  const { greeting, userName } = props;
 
-export default ItemListContainer
+  const [productos, setProductos] = useState([]);
+
+  useEffect(() => {
+    promesa
+      .then((productos) => {
+        setProductos(productos);
+      })
+
+      .catch(() => {
+        console.log("Todo Mal");
+      });
+  }, []);
+
+  return (
+    <>
+      <div>
+        <h1>Bienvenido, {userName}!</h1>
+        <h4>{greeting}</h4>
+      </div>
+
+      <ItemList productos={productos} />
+    </>
+  );
+};
+
+export default ItemListContainer;
