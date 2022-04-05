@@ -8,7 +8,7 @@ const onAdd = (counterItem) =>{
       text: 'Agregado al Carrito',
       icon: 'success'
   })
-  console.log(`User added ${counterItem} items`)
+  console.log(`El usuario agregó ${counterItem} items`)
 }
 
 export const Item = ({ item }) => {
