@@ -2,52 +2,47 @@ import React from "react";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
+import { InitialProducts } from "../mock/InitialProducts";
+import { useParams } from "react-router-dom";
 
-const productosIniciales = [
-  {
-    name: "Nueces",
-    price: 140,
-    stock: 5,
-    id: 1,
-    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
-  },
-  {
-    name: "Almendras",
-    price: 160,
-    stock: 4,
-    id: 2,
-    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
-  },
-  {
-    name: "Maní",
-    price: 30,
-    stock: 3,
-    id: 3,
-    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
-  },
-];
 
 const promesa = new Promise((res, rej) => {
   setTimeout(() => {
-    res(productosIniciales);
+    res(InitialProducts);
   }, 2000);
 });
 
 export const ItemListContainer = (props) => {
+  const apiUrl = "https://mocki.io/v1/2b4a0fb9-be2c-4ace-881b-cf86977c2e87";
   const { greeting, userName } = props;
-
   const [productos, setProductos] = useState([]);
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(false)
+  const { brandName } = useParams()
+
+  const getItems = async () => {
+    try {
+      const response = await fetch(apiUrl);
+      const productos = await response.json();
+
+      if (brandName) {
+        const filterProductos = productos.filter(
+          (element) => element.brand === brandName
+        );
+        setProductos(filterProductos);
+      } else {
+        setProductos(productos);
+      }
+    } catch {
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    promesa
-      .then((productos) => {
-        setProductos(productos);
-      })
-
-      .catch(() => {
-        console.log("Todo Mal");
-      });
-  }, []);
+    getItems();
+  }, [brandName]);
 
   return (
     <Estilos>

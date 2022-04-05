@@ -1,0 +1,36 @@
+export const InitialProducts = [
+  {
+    name: "NUECES",
+    brand: "Frutos Secos",
+    price: 175,
+    oldPrice: 140,
+    discount: 25,
+    stock: 5,
+    id: 1,
+    description1:
+      "Las nueces son altas en contenido de fósforo, este es importante para el cuerpo humano como un elemento estructural en los huesos, dientes fuertes y sanos. El alto contenido de Vitamina E en las nueces la convierte en un poderoso antioxidante.",
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+  {
+    name: "ALMENDRAS",
+    brand: "Frutos Secos",
+    price: 192,
+    oldPrice: 160,
+    discount: 20,
+    stock: 4,
+    id: 2,
+    description1: "Son ricas en fibras, proteínas, vitaminas B y E, grasas saludables, hierro, calcio, fósforo… Merendar almendras o tomarlas a media mañana puede ayudar a mantener unos niveles saludables de colesterol; además, contienen más fibra que cualquier otro fruto seco",
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+  {
+    name: "MANÍ",
+    brand: "Frutos Secos",
+    price: 33,
+    oldPrice: 30,
+    discount: 10,
+    stock: 3,
+    id: 3,
+    description1: "Su contenido en proteínas y aminoácidos, minerales como el potasio, magnesio y el fósforo, vitamina E y ácido fólico, contribuye a alargar la vida. Entre los beneficios se menciona que mejoran la función del corazón, son activos en la lucha contra el cáncer, reducen el riesgo de Alzheimer, entre otros.",
+    img: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/040/363/products/hisopos-caja11-9f2cf0d7c57f398f8416333590847488-640-0.jpg",
+  },
+];

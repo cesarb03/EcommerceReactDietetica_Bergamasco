@@ -1,5 +1,15 @@
 import styled from "styled-components";
 import ItemCount from "./ItemCount";
+import swal from "sweetalert";
+
+
+const onAdd = (counterItem) =>{
+  swal({
+      text: 'Added to Cart',
+      icon: 'success'
+  })
+  console.log(`User added ${counterItem} items`)
+}
 
 export const Item = ({ item }) => {
   return (
@@ -14,7 +24,7 @@ export const Item = ({ item }) => {
             <span>$ {item.price}</span>
             <br />
             <br />
-            <ItemCount stock={item.stock} />
+            <ItemCount stock={item.stock} onAdd={onAdd}/>
           </div>
         </div>
       </div>
@@ -25,7 +35,7 @@ export const Item = ({ item }) => {
 export default Item;
 
 const Cards = styled.div`
-  width: 90%;
+  width: 95%;
   margin: auto;
 
   img {
@@ -33,7 +43,7 @@ const Cards = styled.div`
   }
 
   .itemList {
-    margin: 15px 20px;
+    margin: 15px 30px;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 50px;

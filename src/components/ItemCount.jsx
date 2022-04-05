@@ -2,19 +2,18 @@ import { useState } from "react";
 import swal from "sweetalert";
 import styled from "styled-components";
 
-const ItemCount = (props) => {
+const ItemCount = (stock, onAdd) => {
   const [counterItem, setCounterItem] = useState(1);
-  const itemStock = props.stock;
 
   const itemAdd = () => {
-    if (itemStock === 0) {
+    if (stock === 0) {
       swal({
         title: "No hay stock disponible",
         icon: "error",
       });
       setCounterItem(0);
     } else {
-      if (counterItem < itemStock) {
+      if (counterItem < stock) {
         setCounterItem(counterItem + 1);
       } else {
         swal({
@@ -26,7 +25,7 @@ const ItemCount = (props) => {
   };
 
   const itemRemove = () => {
-    if (itemStock === 0) {
+    if (stock === 0) {
       swal({
         title: "No hay stock disponible",
         icon: "error",
@@ -45,18 +44,15 @@ const ItemCount = (props) => {
   };
 
   const onAddCart = () => {
-    // props.stock > 0 ? props.cartAdd(counterItem) : props.cartAdd(0);
-    swal({
-      text: "Agregado al carrito",
-      icon: "success",
-    });
-    console.log(counterItem);
+      if (counterItem > 0) {
+        onAdd(counterItem)
+    }
   };
 
   return (
     <Contador>
       <div className="containerItemCount">
-        {props.stock > 0 ? (
+        {stock > 0 ? (
           <>
             <div className="detailItemCount">
               <button onClick={itemRemove} className="itemRemove">

@@ -11,6 +11,13 @@ function Navbar() {
     //cuando esta true lo pasa a false y viceversa
     setClicked(!clicked);
   };
+
+
+  const brands = [
+    { name: "Nueces", route: "brands/Frutos Secos", id: 1 },
+    { name: "Almendras", route: "brands/Frutos Secos", id: 2 },
+    { name: "Maní", route: "brands/Frutos Secos", id: 3 }
+]
   return (
     <>
       <NavContainer>

@@ -7,7 +7,7 @@ export const ItemList = ({ productos }) => {
     <Poscards>
       {productos.length > 0 ? (
         productos.map((card) => (
-          <div key={card.id} item>
+          <div key={card.id}>
             <Item item={card} />
           </div>
         ))
