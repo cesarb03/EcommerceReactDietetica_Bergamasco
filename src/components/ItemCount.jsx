@@ -2,52 +2,53 @@ import { useState } from "react";
 import swal from "sweetalert";
 import styled from "styled-components";
 
-const ItemCount = (stock, onAdd) => {
+const ItemCount = (props) => {
+  const { stock, onAdd } = props;
   const [counterItem, setCounterItem] = useState(1);
 
-  const itemAdd = () => {
-    if (stock === 0) {
-      swal({
-        title: "No hay stock disponible",
-        icon: "error",
-      });
-      setCounterItem(0);
-    } else {
-      if (counterItem < stock) {
-        setCounterItem(counterItem + 1);
-      } else {
-        swal({
-          text: "No puedes superar el stock disponible",
-          icon: "warning",
-        });
-      }
+ const itemAdd = () => {
+            if(stock === 0){
+            swal({
+                title: 'No hay stock disponible',
+                icon: 'error'
+            });
+            setCounterItem(0);
+        }else{
+            if(counterItem < stock){
+                setCounterItem(counterItem + 1);
+            }else{
+                swal({
+                    title: 'No puedes superar el stock disponible',
+                    icon: 'warning'
+                });
+            }
+        }
     }
-  };
 
-  const itemRemove = () => {
-    if (stock === 0) {
-      swal({
-        title: "No hay stock disponible",
-        icon: "error",
-      });
-      setCounterItem(0);
-    } else {
-      if (counterItem > 1) {
-        setCounterItem(counterItem - 1);
-      } else {
+    const itemRemove = () => {
+        if(stock === 0){
         swal({
-          text: "No puede añadir menos de 1 producto",
-          icon: "info",
+            title: 'No hay stock disponible',
+            icon: 'error'
         });
-      }
-    }
-  };
+        setCounterItem(0);
+        }else{
+        if(counterItem > 1){
+            setCounterItem(counterItem - 1);
+        }else{
+                swal({
+                    text: 'No puede añadir menos de 1 producto',
+                    icon: 'info'
+                });
+            }
+        }
+    } 
 
-  const onAddCart = () => {
-      if (counterItem > 0) {
-        onAdd(counterItem)
+    const onAddCart = () => {
+        if (counterItem > 0) {
+            onAdd(counterItem)
+        }
     }
-  };
 
   return (
     <Contador>

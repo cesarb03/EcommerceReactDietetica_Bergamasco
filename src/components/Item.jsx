@@ -5,7 +5,7 @@ import swal from "sweetalert";
 
 const onAdd = (counterItem) =>{
   swal({
-      text: 'Added to Cart',
+      text: 'Agregado al Carrito',
       icon: 'success'
   })
   console.log(`User added ${counterItem} items`)

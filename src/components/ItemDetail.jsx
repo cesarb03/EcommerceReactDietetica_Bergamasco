@@ -1,14 +1,5 @@
-import ItemCount from "./ItemCount";
-import swal from "sweetalert";
 import styled from "styled-components";
 
-const onAdd = (counterItem) => {
-  swal({
-    text: "Added to Cart",
-    icon: "success",
-  });
-  console.log(`User added ${counterItem} items`);
-};
 
 const ItemDetail = ({ itemDetail }) => {
   return (
@@ -23,7 +14,7 @@ const ItemDetail = ({ itemDetail }) => {
             <span>$ {itemDetail.price}</span>
             <br />
             <br />
-            <ItemCount stock={itemDetail.stock} />
+            <h5>{itemDetail.description1}</h5>
           </div>
         </div>
       </div>
@@ -33,4 +24,23 @@ const ItemDetail = ({ itemDetail }) => {
 
 export default ItemDetail;
 
-const EstilosID = styled.div``;
+const EstilosID = styled.div`
+ width: 95%;
+  margin: auto;
+
+  img {
+    width: 100px;
+  }
+
+  .itemList {
+    margin: 15px 30px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 50px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
+  }
+
+  .item button:hover {
+    background-color: #d26691;
+  }
+`;
