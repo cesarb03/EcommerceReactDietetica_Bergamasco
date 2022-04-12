@@ -1,7 +1,7 @@
 export const InitialProducts = [
   {
     name: "NUECES",
-    brand: "Frutos Secos",
+    brand: "Prueba1",
     price: 175,
     oldPrice: 140,
     discount: 25,
@@ -13,7 +13,7 @@ export const InitialProducts = [
   },
   {
     name: "ALMENDRAS",
-    brand: "Frutos Secos",
+    brand: "Prueba2",
     price: 192,
     oldPrice: 160,
     discount: 20,
@@ -24,7 +24,7 @@ export const InitialProducts = [
   },
   {
     name: "MANÍ",
-    brand: "Frutos Secos",
+    brand: "Prueba3",
     price: 33,
     oldPrice: 30,
     discount: 10,

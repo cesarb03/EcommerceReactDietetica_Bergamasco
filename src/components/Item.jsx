@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import ItemCount from "./ItemCount";
 import swal from "sweetalert";
+import { Link} from "react-router-dom";
 
 
 const onAdd = (counterItem) =>{
@@ -17,7 +18,7 @@ export const Item = ({ item }) => {
       <div className="itemList">
         <div>
           <div className="item">
-            <img src={item.img} alt="" />
+            <Link key={item.id} to={`/product/${Item.id}`}><img src={item.img} alt="" /></Link>
             <h3>{item.name}</h3>
             <span>Stock: {item.stock}</span>
             <br />

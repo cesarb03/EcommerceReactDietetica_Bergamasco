@@ -13,7 +13,7 @@ const promesa = new Promise((res, rej) => {
 });
 
 export const ItemListContainer = (props) => {
-  const apiUrl = "https://mocki.io/v1/2b4a0fb9-be2c-4ace-881b-cf86977c2e87";
+  const apiUrl = "https://mocki.io/v1/dafa7457-1258-4b32-abfb-8402047fd584";
   const { greeting, userName } = props;
   const [productos, setProductos] = useState([]);
   const [loading, setLoading] = useState(true)

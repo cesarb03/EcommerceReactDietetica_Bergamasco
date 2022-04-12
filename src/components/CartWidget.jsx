@@ -5,9 +5,7 @@ const CartWidget = () => {
   return (
     <div>
       {" "}
-      <a href="">
         <TiShoppingCart />
-      </a>
     </div>
   );
 };

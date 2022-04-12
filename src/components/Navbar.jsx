@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import BurgerButtons from "./BurgerButtons";
 import CartWidget from "./CartWidget";
+import {NavLink} from "react-router-dom";
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
@@ -12,36 +13,43 @@ function Navbar() {
     setClicked(!clicked);
   };
 
-
   const brands = [
     { name: "Nueces", route: "brands/Frutos Secos", id: 1 },
     { name: "Almendras", route: "brands/Frutos Secos", id: 2 },
-    { name: "Maní", route: "brands/Frutos Secos", id: 3 }
-]
+    { name: "Maní", route: "brands/Frutos Secos", id: 3 },
+  ];
   return (
     <>
       <NavContainer>
-        <h2>
-          Dietetica <span>Responsive</span>
-        </h2>
+
+        <NavLink to="/">
+          <h2>
+            Dietetica <span>Responsive</span>
+          </h2>
+        </NavLink>
+
         <div className={`links ${clicked ? "active" : ""}`}>
-          <a onClick={handleClick} href="">
+          <NavLink onClick={handleClick} to="">
             Inicio
-          </a>
-          <a onClick={handleClick} href="">
+          </NavLink>
+          <NavLink onClick={handleClick} to="">
             Productos
-          </a>
-          <a onClick={handleClick} href="">
+          </NavLink>
+          <NavLink onClick={handleClick} to="">
             Quiénes Somos
-          </a>
-          <a onClick={handleClick} href="">
+          </NavLink>
+          <NavLink onClick={handleClick} to="">
             Contacto
-          </a>
-          <a onClick={handleClick} href="">
+          </NavLink>
+          <NavLink onClick={handleClick} to="">
             Noticias
-          </a>
+          </NavLink>
         </div>
-        <CartWidget />
+        
+        <NavLink to="/Cart">
+          <CartWidget />
+        </NavLink>
+
         <div className="burguer">
           <BurgerButtons clicked={clicked} handleClick={handleClick} />
         </div>

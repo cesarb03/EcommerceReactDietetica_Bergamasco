@@ -1,7 +1,7 @@
 export const InitialProduct = [
     {
         name: "NUECES",
-        brand: "Frutos Secos",
+        brand: "Prueba1",
         price: 175,
         oldPrice: 140,
         discount: 25,

@@ -4,6 +4,7 @@ import { InitialProduct } from "../mock/InitialProduct";
 import Loader from './Loader'
 import { useParams } from "react-router-dom"; 
 
+
 const getItem = new Promise((res, rej) => {
     setTimeout(() => {
       res(InitialProduct);
@@ -14,7 +15,7 @@ const ItemDetailContainer = () => {
 
     const [producto, setProducto] = useState([])
 
-    const apiUrl = "https://mocki.io/v1/765ea156-bdb7-47a5-ad9d-96b0cafcff1e"
+    const apiUrl = "https://mocki.io/v1/dafa7457-1258-4b32-abfb-8402047fd584"
     const {id} = useParams()
  
     useEffect(() => {
