@@ -1,24 +1,23 @@
-import React from "react";
 import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
-import { InitialProducts } from "../mock/InitialProducts";
+// import { InitialProducts } from "../mock/InitialProducts";
 import { useParams } from "react-router-dom";
+import Loader from "./Loader";
 
-
-const promesa = new Promise((res, rej) => {
-  setTimeout(() => {
-    res(InitialProducts);
-  }, 2000);
-});
+// const promesa = new Promise((res, rej) => {
+//   setTimeout(() => {
+//     res(InitialProducts);
+//   }, 2000);
+// });
 
 export const ItemListContainer = (props) => {
   const apiUrl = "https://mocki.io/v1/dafa7457-1258-4b32-abfb-8402047fd584";
   const { greeting, userName } = props;
   const [productos, setProductos] = useState([]);
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(false)
-  const { brandName } = useParams()
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+  const { brandName } = useParams();
 
   const getItems = async () => {
     try {
@@ -41,8 +40,8 @@ export const ItemListContainer = (props) => {
   };
 
   useEffect(() => {
-    getItems();
-  }, [brandName]);
+    getItems()
+  }, [brandName])
 
   return (
     <Estilos>
@@ -51,10 +50,18 @@ export const ItemListContainer = (props) => {
         <h4>{greeting}</h4>
       </div>
 
-      <ItemList productos={productos} />
+      {loading ? (
+        <Loader />
+      ) 
+      : error ? (
+        <h1>Lo sentimos, ocurrió un error...</h1>
+      ) 
+      : (
+        <ItemList productos={productos} />
+      )}
     </Estilos>
-  );
-};
+  )
+}
 
 export default ItemListContainer;
 

@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 const ItemDetail = ({ itemDetail }) => {
   return (
     <EstilosID>
@@ -13,7 +12,6 @@ const ItemDetail = ({ itemDetail }) => {
             <br />
             <span>$ {itemDetail.price}</span>
             <br />
-            <br />
             <h5>{itemDetail.description1}</h5>
           </div>
         </div>
@@ -25,11 +23,30 @@ const ItemDetail = ({ itemDetail }) => {
 export default ItemDetail;
 
 const EstilosID = styled.div`
- width: 95%;
+  width: 50%;
   margin: auto;
 
+  .item {
+  }
+
   img {
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 200px;
+  }
+
+  h3{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 200px;
+  }
+  span{
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    width: 200px;
   }
 
   .itemList {

@@ -18,7 +18,7 @@ export const Item = ({ item }) => {
       <div className="itemList">
         <div>
           <div className="item">
-            <Link key={item.id} to={`/product/${Item.id}`}><img src={item.img} alt="" /></Link>
+            <Link key={item.id} to={`/product/${item.id}`}><img src={item.img} alt="" /></Link>
             <h3>{item.name}</h3>
             <span>Stock: {item.stock}</span>
             <br />

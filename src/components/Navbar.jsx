@@ -14,9 +14,9 @@ function Navbar() {
   };
 
   const brands = [
-    { name: "Nueces", route: "brands/Frutos Secos", id: 1 },
-    { name: "Almendras", route: "brands/Frutos Secos", id: 2 },
-    { name: "Maní", route: "brands/Frutos Secos", id: 3 },
+    { name: "Nueces", route: "brands/Prueba1", id: 1 },
+    { name: "Almendras", route: "brands/Prueba2", id: 2 },
+    { name: "Maní", route: "brands/Prueba3", id: 3 },
   ];
   return (
     <>
@@ -29,7 +29,7 @@ function Navbar() {
         </NavLink>
 
         <div className={`links ${clicked ? "active" : ""}`}>
-          <NavLink onClick={handleClick} to="">
+          {/* <NavLink onClick={handleClick} to="">
             Inicio
           </NavLink>
           <NavLink onClick={handleClick} to="">
@@ -43,7 +43,19 @@ function Navbar() {
           </NavLink>
           <NavLink onClick={handleClick} to="">
             Noticias
+          </NavLink> */}
+
+
+          <nav>
+          <NavLink to="/">
+            Inicio
           </NavLink>
+          {brands.map((brands) => (
+            <NavLink  key={brands.id} to={`/${brands.route}`}>
+              {brands.name}
+            </NavLink>
+          ))}
+        </nav>
         </div>
         
         <NavLink to="/Cart">
