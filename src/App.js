@@ -5,6 +5,8 @@ import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
+import CustomProvider from './context/CartContext'
+
 
 function App() {
   const greeting = "Tenemos todos los productos saludables que buscas";
@@ -12,24 +14,26 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <ItemListContainer userName={userName} greeting={greeting} />
-          }
-        />
-        <Route
-          path="/brands/:brandName"
-          element={
-            <ItemListContainer userName={userName} greeting={greeting} />
-          }
-        />
-        <Route path="/product/:id" element={<ItemDetailContainer />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="*" element={<Error />} />
-      </Routes>
+      <CustomProvider>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ItemListContainer userName={userName} greeting={greeting} />
+            }
+          />
+          <Route
+            path="/brands/:brandName"
+            element={
+              <ItemListContainer userName={userName} greeting={greeting} />
+            }
+          />
+          <Route path="/product/:id" element={<ItemDetailContainer />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="*" element={<Error />} />
+        </Routes>
+      </CustomProvider>
     </>
   );
 }

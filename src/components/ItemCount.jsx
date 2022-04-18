@@ -1,6 +1,7 @@
 import { useState } from "react";
 import swal from "sweetalert";
 import styled from "styled-components";
+import {NavLink} from "react-router-dom";
 
 const ItemCount = (props) => {
   const { stock, onAdd } = props;
@@ -47,6 +48,7 @@ const ItemCount = (props) => {
     const onAddCart = () => {
         if (counterItem > 0) {
             onAdd(counterItem)
+            setCounterItem(1)
         }
     }
 
@@ -68,7 +70,7 @@ const ItemCount = (props) => {
             </div>
 
             <div className="cartAdd">
-              <button onClick={onAddCart}>Añadir al Carrito</button>
+              <NavLink to="/Cart"><button onClick={onAddCart}>Añadir al Carrito</button></NavLink>
             </div>
           </>
         ) : (

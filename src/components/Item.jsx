@@ -18,14 +18,16 @@ export const Item = ({ item }) => {
       <div className="itemList">
         <div>
           <div className="item">
-            <Link key={item.id} to={`/product/${item.id}`}><img src={item.img} alt="" /></Link>
+            <img src={item.img} alt="" />
             <h3>{item.name}</h3>
             <span>Stock: {item.stock}</span>
             <br />
             <span>$ {item.price}</span>
             <br />
             <br />
-            <ItemCount stock={item.stock} onAdd={onAdd}/>
+            <Link key={item.id} to={`/product/${item.id}`} className="cartAdd">
+            <button> Ver Detalle</button>
+            </Link>
           </div>
         </div>
       </div>
@@ -53,5 +55,17 @@ const Cards = styled.div`
 
   .item button:hover {
     background-color: #d26691;
+  }
+  .cartAdd button {
+    border: none;
+    width: 100%;
+    margin-top: 10px;
+    box-sizing: border-box;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #fe7bb0;
+    cursor: pointer;
+    font-weight: bold;
+    color: white;
   }
 `;
