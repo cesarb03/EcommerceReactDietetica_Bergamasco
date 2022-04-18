@@ -35,8 +35,9 @@ export const ItemListContainer = (props) => {
     } catch {
       setError(true);
     } finally {
-      setLoading(false);
-    }
+      setTimeout(() => {
+        setLoading(false)
+      }, 1000)    }
   };
 
   useEffect(() => {
