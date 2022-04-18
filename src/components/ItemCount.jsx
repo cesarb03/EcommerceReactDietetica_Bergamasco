@@ -1,7 +1,7 @@
 import { useState } from "react";
 import swal from "sweetalert";
 import styled from "styled-components";
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const ItemCount = (props) => {
   const { stock, onAdd } = props;
@@ -70,7 +70,7 @@ const ItemCount = (props) => {
             </div>
 
             <div className="cartAdd">
-              <NavLink to="/Cart"><button onClick={onAddCart}>Añadir al Carrito</button></NavLink>
+              <Link to=""><button onClick={onAddCart}>Añadir al Carrito</button></Link>
             </div>
           </>
         ) : (

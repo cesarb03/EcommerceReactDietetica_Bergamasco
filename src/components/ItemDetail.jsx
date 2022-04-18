@@ -4,6 +4,8 @@ import { context } from "../context/CartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import swal from "sweetalert";
+
 
 
 
@@ -15,12 +17,23 @@ const ItemDetail = ({ itemDetail }) => {
 
   const onAdd = (counterItem) => {
     setAddToCartClicked(true);
+    swal({
+      text: 'Agregado al Carrito',
+      icon: 'success'
+      })
     setItemQty(counterItem);
+    console.log(counterItem)
   };
 
   const onAddCart = () => {
     addItem(itemDetail, itemQty)
 }
+
+const deleteItem = () => {
+  removeItem(itemDetail) //El item se remueve del carrito
+  setAddToCartClicked(false) //Desaparece el boton "DELETE FROM CART"
+}
+
 
   return (
     <EstilosID>
@@ -35,16 +48,21 @@ const ItemDetail = ({ itemDetail }) => {
             <br />
             <h5>{itemDetail.description1}</h5>
             <br />
-            {!addToCartClicked ? (
+            { addToCartClicked ? 
+              (<>
               <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
-            ) : (
-              <Link to={`/Cart`}>
-                <button className="cartAdd" onClick={onAddCart}>
-                  Añadir al Carrito
+              <Link to="/Cart" className="cartAdd">
+                <button onClick={onAddCart}>
+                  Comprar
                 </button>
               </Link>
-            )}
-            <br />
+              <div className="cartAdd"><button onClick={deleteItem}>Eliminar del Carrito</button></div>
+              </>
+            )
+            :(
+            <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
+            )
+          }
           </div>
         </div>
       </div>
