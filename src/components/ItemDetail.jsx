@@ -11,7 +11,7 @@ import swal from "sweetalert";
 
 const ItemDetail = ({ itemDetail }) => {
   const [addToCartClicked, setAddToCartClicked] = useState(false);
-  const [itemQty, setItemQty] = useState(0);
+  // const [itemQty, setItemQty] = useState(0);
   const { addItem, removeItem } = useContext(context)
 
 
@@ -21,16 +21,11 @@ const ItemDetail = ({ itemDetail }) => {
       text: 'Agregado al Carrito',
       icon: 'success'
       })
-    setItemQty(counterItem);
-    console.log(counterItem)
+      addItem(itemDetail, counterItem) 
   };
 
-  const onAddCart = () => {
-    addItem(itemDetail, itemQty)
-}
-
 const deleteItem = () => {
-  removeItem(itemDetail) //El item se remueve del carrito
+  removeItem(itemDetail.id) //El item se remueve del carrito
   setAddToCartClicked(false) //Desaparece el boton "DELETE FROM CART"
 }
 
@@ -52,7 +47,7 @@ const deleteItem = () => {
               (<>
               <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
               <Link to="/Cart" className="cartAdd">
-                <button onClick={onAddCart}>
+                <button>
                   Comprar
                 </button>
               </Link>

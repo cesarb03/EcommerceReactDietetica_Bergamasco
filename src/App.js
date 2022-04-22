@@ -24,7 +24,7 @@ function App() {
             }
           />
           <Route
-            path="/brands/:brandName"
+            path="/category/:category"
             element={
               <ItemListContainer userName={userName} greeting={greeting} />
             }

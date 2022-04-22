@@ -1,23 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import BurgerButtons from "./BurgerButtons";
 import CartWidget from "./CartWidget";
 import {NavLink} from "react-router-dom";
+import { context } from "../context/CartContext";
+
 
 function Navbar() {
   const [clicked, setClicked] = useState(false);
-  console.log(clicked);
+  // console.log(clicked);
 
   const handleClick = () => {
     //cuando esta true lo pasa a false y viceversa
     setClicked(!clicked);
   };
 
-  const brands = [
-    { name: "Nueces", route: "brands/Prueba1", id: 1 },
-    { name: "Almendras", route: "brands/Prueba2", id: 2 },
-    { name: "Maní", route: "brands/Prueba3", id: 3 },
+  const { cartQuantity } = useContext(context)
+
+  const categories = [
+    { name: "Nueces", route: "category/Frutos Secos", id: 1 },
+    { name: "Cebada", route: "category/Cereales", id: 2 },
+    { name: "Garbanzos", route: "category/Legumbres", id: 3 },
   ];
+
   return (
     <>
       <NavContainer>
@@ -45,14 +50,13 @@ function Navbar() {
             Noticias
           </NavLink> */}
 
-
           <nav>
           <NavLink to="/">
             Inicio
           </NavLink>
-          {brands.map((brands) => (
-            <NavLink  key={brands.id} to={`/${brands.route}`}>
-              {brands.name}
+          {categories.map((element) => (
+            <NavLink  key={element.id} to={`/${element.route}`}>
+              {element.name}
             </NavLink>
           ))}
         </nav>
@@ -60,6 +64,7 @@ function Navbar() {
         
         <NavLink to="/Cart">
           <CartWidget />
+          { cartQuantity !== 0 ? (<div className="badge">{cartQuantity}</div>) : null }
         </NavLink>
 
         <div className="burguer">
@@ -158,4 +163,16 @@ const BgDiv = styled.div`
     width: 100%;
     height: 100%;
   }
+  .badge:after{
+        content:attr(value);
+        font-size:12px;
+        color: #fff;
+        background: red;
+        border-radius:50%;
+        padding: 0 5px;
+        position:relative;
+        left:-8px;
+        top:-10px;
+        opacity:0.9;
+    }
 `;

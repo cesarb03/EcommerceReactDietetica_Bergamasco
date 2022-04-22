@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
-// import { InitialProduct } from "../mock/InitialProduct";
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../firebase/firebase"
 import Loader from "./Loader";
 import { useParams } from "react-router-dom";
 
@@ -8,34 +9,31 @@ const ItemDetailContainer = () => {
   const [producto, setProducto] = useState([]);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const apiUrl = "https://mocki.io/v1/dafa7457-1258-4b32-abfb-8402047fd584";
   const { id } = useParams();
 
-  const getItem = async () => {
-    try {
-      const response = await fetch(apiUrl);
-      const productos = await response.json();
-
-      if (id) {
-        const filterProducto = productos.filter(
-          (element) => element.id.toString() === id
-        );
-        setProducto(filterProducto);
-      } else {
-        <h1>No hay ningún producto seleccionado</h1>;
-      }
-    } catch {
-      setError(true);
-    } finally {
-      setTimeout(() => {
-        setLoading(false)
-      }, 700)
-    }
-  };
 
   useEffect(() => {
-    getItem()
-  }, [id])
+    const itemDetailFiltered = doc(db, 'productos', `${id}`)
+
+    getDoc(itemDetailFiltered)
+        .then((result) => {
+            if (result.exists()) {
+                setProducto({
+                    id: result.id, ...result.data()
+                })
+            } 
+        })
+        .catch(error => {
+            setError(true)
+            console.log(`Error: ${error}`)
+        })
+        .finally(() => {
+          setTimeout(() => {
+            setLoading(false)
+          },700)
+        })
+        
+}, [id])
 
   return (
     <>
@@ -45,12 +43,11 @@ const ItemDetailContainer = () => {
         ) : error ? (
           <h1>Lo sentimos, ocurrió un error...</h1>
         ) : (
-          producto.map((itemDetail) => (
-            <div key={itemDetail.id}>
-              <ItemDetail itemDetail={itemDetail} />
+            <div>
+              <ItemDetail itemDetail={producto} />
             </div>
-          ))
-        )}
+          )
+        }
       </div>
     </>
   );

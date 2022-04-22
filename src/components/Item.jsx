@@ -1,16 +1,6 @@
 import styled from "styled-components";
-import ItemCount from "./ItemCount";
-import swal from "sweetalert";
 import { Link} from "react-router-dom";
 
-
-const onAdd = (counterItem) =>{
-  swal({
-      text: 'Agregado al Carrito',
-      icon: 'success'
-  })
-  console.log(`El usuario agregó ${counterItem} items`)
-}
 
 export const Item = ({ item }) => {
   return (
