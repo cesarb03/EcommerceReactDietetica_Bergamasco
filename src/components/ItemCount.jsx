@@ -48,7 +48,6 @@ const ItemCount = (props) => {
     const onAddCart = () => {
         if (counterItem > 0) {
             onAdd(counterItem)
-            setCounterItem(1)
         }
     }
 

@@ -1,4 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react'
+import swal from "sweetalert";
+
 
 export const context = createContext()
 
@@ -13,9 +15,41 @@ const CustomProvider = ({ children }) => {
 
 
         if (isInCart(itemDetail)) {
-            const itemAdded = cartItems.find((element) => element.id === itemDetail.id)
-            itemAdded.qty = itemAdded.qty + itemQuantity 
-            setCartQuantity(cartQuantity + itemQuantity)
+            const cartItemsMF = cartItems.map((cartItem)=>{
+                if (cartItem.id === itemDetail.id) //Encuentra el item que ya estaba en el carrito
+                { if (cartItem.stock>=itemQuantity) //Verifica que la cantidad que quiere agregar no supere el stock disponible
+                    {
+                        const cartItemMF = {
+                            name: cartItem.name,
+                            price: cartItem.price,
+                            id: cartItem.id,
+                            img: cartItem.img,
+                            qty: cartItem.qty + itemQuantity,
+                            stock: cartItem.stock - itemQuantity
+                            }
+                            setCartQuantity(cartQuantity + cartItemMF.qty)
+                            return cartItemMF //Devuelve el item con la cantidad modificada
+                            
+                    } else {
+                        swal({
+                            title: 'No hay stock disponible',
+                            icon: 'warning'
+                        })
+                        const cartItemMF = {
+                            name: cartItem.name,
+                            price: cartItem.price,
+                            id: cartItem.id,
+                            img: cartItem.img,
+                            qty: cartItem.qty,
+                            stock: cartItem.stock
+                            }
+                            return cartItemMF //Devuelve el item con la cantidad modificada
+                    }
+                }
+                else {return cartItem} //Devuelve el item sin modificar
+            } 
+            )   
+        setCartItems(cartItemsMF)
            
         } else {
             

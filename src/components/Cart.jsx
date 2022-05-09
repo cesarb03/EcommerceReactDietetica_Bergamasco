@@ -26,12 +26,13 @@ const Cart = () => {
     buyerEmail: "",
   });
 
-  const formHandler = (e) => {
+  const formHandler = ((e) => {
     setBuyerInfo({
       ...BuyerInfo,
       [e.target.name]: e.target.value,
-    });
-  };
+    })
+  }
+  )
 
   const confirmCheckout = () => {
     const order = {
@@ -39,25 +40,26 @@ const Cart = () => {
       items: cartItems,
       date: serverTimestamp(),
       total: totalCost(),
-    };
+    }
 
-    const userOrder = collection(db, "OrderCollection");
+    const userOrder = collection(db, "OrderCollection")
     addDoc(userOrder, order)
-      .then((result) => {
+      .then(result => {
         swal({
           title: "Compra Exitosa!",
           text: `
             Tu Orden ID: ${result.id}\n
             Total: $${totalCost()}`,
           icon: "success",
-        });
+        })
       })
       .then(
-        cartItems.forEach((element) => {
-          const PurchasedQuantity = element.qty;
-          const updateCollection = doc(db, "ItemCollection", `${element.id}`);
-          getDoc(updateCollection).then((result) => {
-            const updatedStock = result.data().stock - PurchasedQuantity;
+        cartItems.forEach( element => {
+          const PurchasedQuantity = element.qty
+          const updateCollection = doc(db, "productos", `${element.id}`)
+          getDoc(updateCollection)
+          .then( result => {
+            const updatedStock = result.data().stock - PurchasedQuantity
             console.log(updatedStock);
             updateDoc(updateCollection, { stock: updatedStock });
           });
