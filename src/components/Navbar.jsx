@@ -114,6 +114,7 @@ const NavContainer = styled.nav`
     left: 0;
     right: 0;
     text-align: center;
+    z-index:999;
     a {
       font-size: 2rem;
       margin-top: 1rem;
@@ -142,7 +143,7 @@ const BgDiv = styled.div`
     left: 0;
     width: 100%;
     height: 100%;
-    z-index:-1;
+    z-index:1;
   }
   
 `;
