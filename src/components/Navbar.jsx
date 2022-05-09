@@ -1,9 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import BurgerButtons from "./BurgerButtons";
 import CartWidget from "./CartWidget";
 import {NavLink} from "react-router-dom";
-import { context } from "../context/CartContext";
 
 
 function Navbar() {
@@ -15,7 +14,6 @@ function Navbar() {
     setClicked(!clicked);
   };
 
-  const { cartQuantity } = useContext(context)
 
   const categories = [
     { name: "Nueces", route: "category/Frutos Secos", id: 1 },
@@ -34,28 +32,12 @@ function Navbar() {
         </NavLink>
 
         <div className={`links ${clicked ? "active" : ""}`}>
-          {/* <NavLink onClick={handleClick} to="">
-            Inicio
-          </NavLink>
-          <NavLink onClick={handleClick} to="">
-            Productos
-          </NavLink>
-          <NavLink onClick={handleClick} to="">
-            Quiénes Somos
-          </NavLink>
-          <NavLink onClick={handleClick} to="">
-            Contacto
-          </NavLink>
-          <NavLink onClick={handleClick} to="">
-            Noticias
-          </NavLink> */}
-
           <nav>
           <NavLink to="/">
             Inicio
           </NavLink>
           {categories.map((element) => (
-            <NavLink  key={element.id} to={`/${element.route}`}>
+            <NavLink key={element.id} to={`/${element.route}`}>
               {element.name}
             </NavLink>
           ))}
@@ -64,7 +46,6 @@ function Navbar() {
         
         <NavLink to="/Cart">
           <CartWidget />
-          { cartQuantity !== 0 ? (<div className="badge">{cartQuantity}</div>) : null }
         </NavLink>
 
         <div className="burguer">
@@ -153,26 +134,15 @@ const BgDiv = styled.div`
   left: -1000px;
   width: 100%;
   height: 100%;
-  z-index: -1;
   transition: all 0.6s ease;
 
   &.active {
     border-radius: 0 0 80% 0;
-    top: 0;
+    top: 84px;
     left: 0;
     width: 100%;
     height: 100%;
+    z-index:-1;
   }
-  .badge:after{
-        content:attr(value);
-        font-size:12px;
-        color: #fff;
-        background: red;
-        border-radius:50%;
-        padding: 0 5px;
-        position:relative;
-        left:-8px;
-        top:-10px;
-        opacity:0.9;
-    }
+  
 `;

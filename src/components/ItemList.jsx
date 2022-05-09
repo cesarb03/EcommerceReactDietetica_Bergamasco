@@ -19,7 +19,8 @@ export default ItemList;
 
 const Poscards = styled.div`
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
   justify-content: center;
 `;

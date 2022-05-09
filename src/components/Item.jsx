@@ -6,20 +6,16 @@ export const Item = ({ item }) => {
   return (
     <Cards>
       <div className="itemList">
-        <div>
           <div className="item">
             <img src={item.img} alt="" />
             <h3>{item.name}</h3>
             <span>Stock: {item.stock}</span>
-            <br />
             <span>$ {item.price}</span>
-            <br />
             <br />
             <Link key={item.id} to={`/product/${item.id}`} className="cartAdd">
             <button> Ver Detalle</button>
             </Link>
           </div>
-        </div>
       </div>
     </Cards>
   );
@@ -28,19 +24,39 @@ export const Item = ({ item }) => {
 export default Item;
 
 const Cards = styled.div`
-  width: 95%;
+  width: 100%;
   margin: auto;
 
+*, *::after, ::before{
+  box-sizing: inherit
+}
+
   img {
-    width: 100px;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    max-height: 100px;
   }
 
-  .itemList {
-    margin: 15px 30px;
+  h3{
+    display: flex;
+    justify-content: center;
+}  
+
+  span{
+    display: flex;
+    justify-content: center;
+}
+
+.itemList {
+    width: 80%;
+    margin: 35px 45px;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 50px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
+    min-width: 220px;
+    max-width: 220px;
   }
 
   .item button:hover {

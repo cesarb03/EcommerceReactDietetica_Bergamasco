@@ -72,33 +72,37 @@ const EstilosID = styled.div`
   margin: auto;
 
   .item {
+    min-width: 100px;
   }
 
   img {
     display: flex;
     justify-content: center;
     margin: auto;
-    width: 200px;
+    width: 45%;
+    min-width: 140px;
   }
 
   h3 {
     display: flex;
     justify-content: center;
     margin: auto;
-    width: 200px;
   }
   span {
     display: flex;
     justify-content: center;
     margin: auto;
-    width: 200px;
   }
 
   .itemList {
-    margin: 15px 30px;
+    height:100%;
+    width: auto;
+    margin-top: 10%;
+    margin-bottom: 10%;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 50px;
+    min-width: 100px;
     box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
   }
 
@@ -117,5 +121,21 @@ const EstilosID = styled.div`
     cursor: pointer;
     font-weight: bold;
     color: white;
+  }
+
+
+  @media only screen and (max-width: 600px){ 
+    width: 75%;
+    .itemList {
+    height:100%;
+    width: 300px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 10px;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
+  }
+    
   }
 `;

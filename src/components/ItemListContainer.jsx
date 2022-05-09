@@ -86,8 +86,22 @@ export const ItemListContainer = (props) => {
 export default ItemListContainer;
 
 const Estilos = styled.div`
+* {
+    margin:0; 
+    padding:0;
+}
   h1,
   h4 {
     text-align: center;
   }
+
+  @media only screen and (max-width: 600px){ 
+    h1,
+    h4 {
+      text-align: center;
+      max-width: 370px;
+    }
+  }
+    
+  
 `;
