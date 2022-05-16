@@ -134,7 +134,7 @@ const Cart = () => {
                 />
               </div>
               <div className="input">
-                <label htmlFor="">Last Name: </label>
+                <label htmlFor="">Apellido: </label>
                 <br />
                 <input
                   value={BuyerInfo.buyerLastName}
