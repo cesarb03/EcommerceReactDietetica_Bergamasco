@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ItemDetail from "../containers/ItemDetail";
+import ItemDetail from "./ItemDetail";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebase";
 import Loader from "../components/Loader";

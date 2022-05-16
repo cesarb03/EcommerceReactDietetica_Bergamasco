@@ -1,4 +1,4 @@
-import ItemList from "../containers/ItemList";
+import ItemList from "./ItemList";
 import { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import styled from "styled-components";
