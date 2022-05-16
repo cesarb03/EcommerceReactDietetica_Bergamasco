@@ -6,6 +6,7 @@ import ItemDetailContainer from "./containers/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
 import CustomProvider from './context/CartContext'
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
         </Routes>
+        <Footer/>
       </CustomProvider>
     </>
   );
