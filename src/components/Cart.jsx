@@ -183,7 +183,7 @@ const Cart = () => {
 export default Cart;
 
 const CartStyle = styled.div`
-  height: 100vh;
+  /* height: 100vh; */
 
   @media (min-width: 768px) {
     .container {
@@ -383,10 +383,12 @@ const CartStyle = styled.div`
     cursor: unset;
     background-color: #808080;
   }
+  h3 {
+    font-size: 0.9rem;
+  }
 
   @media only screen and (max-width: 600px) {
     .cart-items {
-      max-width: 370px;
       margin-top: 0;
     }
     .tarjeta_cart {
@@ -394,7 +396,7 @@ const CartStyle = styled.div`
       padding: 0;
     }
     h3 {
-      font-size: 0.9rem;
+      font-size: 0.5rem;
     }
     h1 {
       max-width: 350px;

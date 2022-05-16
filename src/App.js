@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 
 function App() {
   const greeting = "Tenemos todos los productos saludables que buscas";
-  const userName = "César Bergamasco";
+  const userName = "a nuestra tienda online";
 
   return (
     <>

@@ -12,9 +12,9 @@ function Navbar() {
   };
 
   const categories = [
-    { name: "Nueces", route: "category/Frutos Secos", id: 1 },
-    { name: "Cebada", route: "category/Cereales", id: 2 },
-    { name: "Garbanzos", route: "category/Legumbres", id: 3 },
+    { name: "Frutos Secos", route: "category/Frutos Secos", id: 1 },
+    { name: "Cereales", route: "category/Cereales", id: 2 },
+    { name: "Legumbres", route: "category/Legumbres", id: 3 },
   ];
 
   return (
@@ -103,7 +103,7 @@ const NavContainer = styled.nav`
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    top: 30%;
+    top: 7%;
     left: 0;
     right: 0;
     text-align: center;
@@ -124,8 +124,8 @@ const BgDiv = styled.div`
   position: absolute;
   background-color: #fe7bb0;
   background-image: linear-gradient(315deg, #fe7bb0 0%, #ff748b 74%);
-  top: -1000px;
-  left: -1000px;
+  top: -10000px;
+  left: -10000px;
   width: 100%;
   height: 100%;
   transition: all 0.6s ease;
@@ -135,7 +135,7 @@ const BgDiv = styled.div`
     top: 84px;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 20%;
     z-index: 1;
   }
 `;

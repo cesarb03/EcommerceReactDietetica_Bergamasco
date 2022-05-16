@@ -70,7 +70,7 @@ export const ItemListContainer = (props) => {
   return (
     <Estilos>
       <div>
-        <h1>Bienvenido, {userName}!</h1>
+        <h1>Bienvenidos, {userName}!</h1>
         <h4>{greeting}</h4>
       </div>
 
