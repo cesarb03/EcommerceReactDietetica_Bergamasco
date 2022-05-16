@@ -1,4 +1,4 @@
-import ItemCount from "./ItemCount";
+import ItemCount from "../components/ItemCount";
 import React, { useContext } from "react"
 import { context } from "../context/CartContext";
 import { useState } from "react";

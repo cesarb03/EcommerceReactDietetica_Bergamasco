@@ -1,9 +1,9 @@
-import ItemList from "./ItemList";
+import ItemList from "../containers/ItemList";
 import { useEffect, useState } from "react";
 import { getDocs, collection, query, where } from "firebase/firestore";
 import styled from "styled-components";
 import { useParams } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "../components/Loader";
 import { db } from "../firebase/firebase"
 
 
