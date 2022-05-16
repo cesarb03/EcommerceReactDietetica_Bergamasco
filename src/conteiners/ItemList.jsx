@@ -4,13 +4,11 @@ import Item from "../components/Item";
 const ItemList = ({ productos }) => {
   return (
     <Poscards>
-      {
-        productos.map((card) => (
-          <div key={card.id}>
-            <Item item={card} />
-          </div>
-        ))
-      }
+      {productos.map((card) => (
+        <div key={card.id}>
+          <Item item={card} />
+        </div>
+      ))}
     </Poscards>
   );
 };

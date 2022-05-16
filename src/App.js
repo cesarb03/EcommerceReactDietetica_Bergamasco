@@ -5,9 +5,8 @@ import ItemListContainer from "./containers/ItemListContainer";
 import ItemDetailContainer from "./containers/ItemDetailContainer";
 import Cart from "./components/Cart";
 import Error from "./components/Error";
-import CustomProvider from './context/CartContext'
+import CustomProvider from "./context/CartContext";
 import Footer from "./components/Footer";
-
 
 function App() {
   const greeting = "Tenemos todos los productos saludables que buscas";
@@ -34,7 +33,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="*" element={<Error />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </CustomProvider>
     </>
   );

@@ -1,34 +1,28 @@
 import ItemCount from "../components/ItemCount";
-import React, { useContext } from "react"
+import React, { useContext } from "react";
 import { context } from "../context/CartContext";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import swal from "sweetalert";
 
-
-
-
 const ItemDetail = ({ itemDetail }) => {
   const [addToCartClicked, setAddToCartClicked] = useState(false);
-  // const [itemQty, setItemQty] = useState(0);
-  const { addItem, removeItem } = useContext(context)
-
+  const { addItem, removeItem } = useContext(context);
 
   const onAdd = (counterItem) => {
     setAddToCartClicked(true);
     swal({
-      text: 'Agregado al Carrito',
-      icon: 'success'
-      })
-      addItem(itemDetail, counterItem) 
+      text: "Agregado al Carrito",
+      icon: "success",
+    });
+    addItem(itemDetail, counterItem);
   };
 
-const deleteItem = () => {
-  removeItem(itemDetail.id) //El item se remueve del carrito
-  setAddToCartClicked(false) //Desaparece el boton "DELETE FROM CART"
-}
-
+  const deleteItem = () => {
+    removeItem(itemDetail.id);
+    setAddToCartClicked(false);
+  };
 
   return (
     <EstilosID>
@@ -43,21 +37,19 @@ const deleteItem = () => {
             <br />
             <h5>{itemDetail.description1}</h5>
             <br />
-            { addToCartClicked ? 
-              (<>
-              <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
-              <Link to="/Cart" className="cartAdd">
-                <button>
-                  Comprar
-                </button>
-              </Link>
-              <div className="cartAdd"><button onClick={deleteItem}>Eliminar del Carrito</button></div>
+            {addToCartClicked ? (
+              <>
+                <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
+                <Link to="/Cart" className="cartAdd">
+                  <button>Comprar</button>
+                </Link>
+                <div className="cartAdd">
+                  <button onClick={deleteItem}>Eliminar del Carrito</button>
+                </div>
               </>
-            )
-            :(
-            <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
-            )
-          }
+            ) : (
+              <ItemCount stock={itemDetail.stock} onAdd={onAdd} />
+            )}
           </div>
         </div>
       </div>
@@ -95,7 +87,7 @@ const EstilosID = styled.div`
   }
 
   .itemList {
-    height:100%;
+    height: 100%;
     width: auto;
     margin-top: 10%;
     margin-bottom: 10%;
@@ -123,19 +115,17 @@ const EstilosID = styled.div`
     color: white;
   }
 
-
-  @media only screen and (max-width: 600px){ 
+  @media only screen and (max-width: 600px) {
     width: 75%;
     .itemList {
-    height:100%;
-    width: 300px;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    border-radius: 10px;
-    box-sizing: border-box;
-    padding: 10px;
-    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
-  }
-    
+      height: 100%;
+      width: 300px;
+      margin-top: 10%;
+      margin-bottom: 10%;
+      border-radius: 10px;
+      box-sizing: border-box;
+      padding: 10px;
+      box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.32);
+    }
   }
 `;

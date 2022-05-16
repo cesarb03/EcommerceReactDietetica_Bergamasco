@@ -19,7 +19,6 @@ function BurgerButtons(props) {
 export default BurgerButtons;
 
 const Burger = styled.div`
-  /* nav-icon-5 */
   .nav-icon-5 {
     width: 35px;
     height: 30px;

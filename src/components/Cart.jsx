@@ -26,13 +26,12 @@ const Cart = () => {
     buyerEmail: "",
   });
 
-  const formHandler = ((e) => {
+  const formHandler = (e) => {
     setBuyerInfo({
       ...BuyerInfo,
       [e.target.name]: e.target.value,
-    })
-  }
-  )
+    });
+  };
 
   const confirmCheckout = () => {
     const order = {
@@ -40,26 +39,25 @@ const Cart = () => {
       items: cartItems,
       date: serverTimestamp(),
       total: totalCost(),
-    }
+    };
 
-    const userOrder = collection(db, "OrderCollection")
+    const userOrder = collection(db, "OrderCollection");
     addDoc(userOrder, order)
-      .then(result => {
+      .then((result) => {
         swal({
           title: "Compra Exitosa!",
           text: `
             Tu Orden ID: ${result.id}\n
             Total: $${totalCost()}`,
           icon: "success",
-        })
+        });
       })
       .then(
-        cartItems.forEach( element => {
-          const PurchasedQuantity = element.qty
-          const updateCollection = doc(db, "productos", `${element.id}`)
-          getDoc(updateCollection)
-          .then( result => {
-            const updatedStock = result.data().stock - PurchasedQuantity
+        cartItems.forEach((element) => {
+          const PurchasedQuantity = element.qty;
+          const updateCollection = doc(db, "productos", `${element.id}`);
+          getDoc(updateCollection).then((result) => {
+            const updatedStock = result.data().stock - PurchasedQuantity;
             console.log(updatedStock);
             updateDoc(updateCollection, { stock: updatedStock });
           });
@@ -185,6 +183,8 @@ const Cart = () => {
 export default Cart;
 
 const CartStyle = styled.div`
+  height: 100vh;
+
   @media (min-width: 768px) {
     .container {
       max-width: 720px;
@@ -387,22 +387,21 @@ const CartStyle = styled.div`
   @media only screen and (max-width: 600px) {
     .cart-items {
       max-width: 370px;
-      margin-top: 0; ;
+      margin-top: 0;
     }
-    .tarjeta_cart{
-      margin:0;
+    .tarjeta_cart {
+      margin: 0;
       padding: 0;
     }
-    h3{
+    h3 {
       font-size: 0.9rem;
     }
-    h1{
+    h1 {
       max-width: 350px;
       text-align: center;
     }
-    p{
+    p {
       font-size: 0.7rem;
-
     }
   }
 `;

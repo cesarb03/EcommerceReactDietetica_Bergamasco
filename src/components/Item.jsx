@@ -1,21 +1,20 @@
 import styled from "styled-components";
-import { Link} from "react-router-dom";
-
+import { Link } from "react-router-dom";
 
 export const Item = ({ item }) => {
   return (
     <Cards>
       <div className="itemList">
-          <div className="item">
-            <img src={item.img} alt="" />
-            <h3>{item.name}</h3>
-            <span>Stock: {item.stock}</span>
-            <span>$ {item.price}</span>
-            <br />
-            <Link key={item.id} to={`/product/${item.id}`} className="cartAdd">
+        <div className="item">
+          <img src={item.img} alt="" />
+          <h3>{item.name}</h3>
+          <span>Stock: {item.stock}</span>
+          <span>$ {item.price}</span>
+          <br />
+          <Link key={item.id} to={`/product/${item.id}`} className="cartAdd">
             <button> Ver Detalle</button>
-            </Link>
-          </div>
+          </Link>
+        </div>
       </div>
     </Cards>
   );
@@ -27,9 +26,11 @@ const Cards = styled.div`
   width: 100%;
   margin: auto;
 
-*, *::after, ::before{
-  box-sizing: inherit
-}
+  *,
+  *::after,
+  ::before {
+    box-sizing: inherit;
+  }
 
   img {
     display: flex;
@@ -38,17 +39,17 @@ const Cards = styled.div`
     max-height: 100px;
   }
 
-  h3{
+  h3 {
     display: flex;
     justify-content: center;
-}  
+  }
 
-  span{
+  span {
     display: flex;
     justify-content: center;
-}
+  }
 
-.itemList {
+  .itemList {
     width: 80%;
     margin: 35px 45px;
     border-radius: 10px;
