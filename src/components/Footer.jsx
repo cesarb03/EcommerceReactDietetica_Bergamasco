@@ -76,7 +76,7 @@ const FooterStyle = styled.div`
   }
   @media only screen and (max-width: 600px) {
     .footer{
-    padding-top: 25%;
+    padding-top: 40%;
   }
   .menu-nav {
   height: 100px;
