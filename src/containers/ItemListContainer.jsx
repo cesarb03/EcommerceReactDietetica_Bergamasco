@@ -24,6 +24,7 @@ export const ItemListContainer = (props) => {
       getDocs(itemsFiltered)
         .then((result) => {
           const docs = result.docs;
+          if(docs.length > 0){
           const list = docs.map((item) => {
             const id = item.id;
             const producto = {
@@ -33,6 +34,11 @@ export const ItemListContainer = (props) => {
             return producto;
           });
           setProductos(list);
+        }
+        else swal({
+          text: "No hay productos en la categoria seleccionada",
+          icon: "error",
+        })
         })
         .catch((error) => {
           setError(true);
@@ -47,6 +53,7 @@ export const ItemListContainer = (props) => {
       getDocs(itemsCollection)
         .then((result) => {
           const docs = result.docs;
+          if(docs.length > 0){
           const list = docs.map((item) => {
             const id = item.id;
             const producto = {
@@ -56,6 +63,11 @@ export const ItemListContainer = (props) => {
             return producto;
           });
           setProductos(list);
+        }
+        else swal({
+          text: "No hay productos",
+          icon: "error",
+        })
         })
         .catch((error) => {
           setError(true);
